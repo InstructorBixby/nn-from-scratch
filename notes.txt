@@ -1,0 +1,28 @@
+i did the theano mnist tutorials and they work but i dont know what T.grad
+is doing. it hands me the derivatives and i type them into the update. if
+somebody asked me to explain backprop i could not do it.
+
+so no theano. numpy for the matrix multiply because im not writing a loop
+over 784 pixels in python, everything else by hand.
+
+xor first because its the smallest thing that needs a hidden layer. a
+single layer cant do xor, thats the thing out of the minsky book that
+supposedly killed neural nets for ten years.
+
+---
+
+the chain rule bit. if
+
+    z = x . W + b
+    a = sigmoid(z)
+    E = mean((a - y)^2)
+
+then dE/dW is dE/da * da/dz * dz/dW which is
+
+    dE/da = 2(a - y)      the 2 is a constant, ignore it
+    da/dz = a(1 - a)      sigmoid derivative out of a itself
+    dz/dW = x             so x transpose dotted with the delta
+
+for the hidden layer the delta comes from the layer above dotted with that
+layers W transpose. thats the back propagation bit, the same number gets
+passed backwards layer by layer.
