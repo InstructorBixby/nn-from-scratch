@@ -1,0 +1,16 @@
+python test.py, LR 0.5
+
+0 0.250843
+1000 0.499912
+2000 0.500000
+3000 0.500000
+5000 0.500000
+9000 0.500000
+
+[[ 0.99999994]
+ [ 0.99999982]
+ [ 0.00000012]
+ [ 0.00000009]]
+
+so it IS doing something, those are very confident. theyre just not xor,
+and 0.5 is twice the error of guessing.
