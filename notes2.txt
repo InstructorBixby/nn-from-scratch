@@ -1,0 +1,12 @@
+its not learning.
+
+mse starts at 0.25, which is just saying 0.5 for everything, and then goes
+UP to 0.5 and stays there. all four outputs end up 0 or 1 and they are the
+same no matter what the input is.
+
+tried LR 0.5, 0.05, 5.0, 0.001. tried other seeds. tried 50000 iterations.
+tried 8 hidden units. nothing changes which means its not a settings
+problem, something is actually wrong.
+
+the error going UP is the weird bit. if it was just broken it would sit
+still. going up means its working at something, just not at what i want.
