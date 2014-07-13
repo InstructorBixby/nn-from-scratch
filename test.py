@@ -15,10 +15,14 @@ b1 = numpy.zeros((1, 3))
 W2 = numpy.random.random((3, 1)) - 0.5
 b2 = numpy.zeros((1, 1))
 
-LR = 0.5
+LR = 0.05
+# LR = 0.5    # same
+# LR = 5.0    # same but faster
+# LR = 0.001  # same but slower
+# numpy.random.seed(7)   # tried other seeds, no difference
 
 i = 0
-while i < 10000:
+while i < 50000:
     h = 1.0 / (1.0 + numpy.exp(-(numpy.dot(X, W1) + b1)))
     o = 1.0 / (1.0 + numpy.exp(-(numpy.dot(h, W2) + b2)))
 
