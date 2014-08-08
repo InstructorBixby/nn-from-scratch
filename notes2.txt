@@ -10,3 +10,29 @@ problem, something is actually wrong.
 
 the error going UP is the weird bit. if it was just broken it would sit
 still. going up means its working at something, just not at what i want.
+
+---
+
+found it.
+
+check.py does my derivative against (E(w+eps)-E(w-eps))/2eps which is the
+definition of a derivative and cannot be wrong.
+
+every ratio came back -1.0000.
+
+not 0. not 2. not random. exactly minus one, every weight. my derivatives
+were RIGHT. i was adding them.
+
+dE/dw is the direction the error gets BIGGER in. to make it smaller you go
+the other way.
+
+    W = W - LR * gradient
+
+and i had a plus. so for three weeks every update was climbing the hill as
+fast as it could, which is exactly why it got to 0.5 and saturated instead
+of sitting still. it was succeeding, at the wrong thing.
+
+one character.
+
+check.py took me ten minutes to write and would have found this on day
+one. that is the actual lesson here, not backprop.
