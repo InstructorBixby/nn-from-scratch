@@ -52,3 +52,23 @@ after changing + to -
 THATS XOR. three hidden units and a minus sign.
 
 check.py now says 1.0 everywhere.
+
+---
+
+mnist.py, nn2.Net([784, 100, 10]), LR 0.5, batch 10
+
+0  0.1702
+1  0.1388
+5  0.1041
+10 0.0966
+20 0.0921
+29 0.0893
+
+8.9%. the theano mlp got 1.7% but that had 500 hidden units, tanh,
+softmax, a proper cross entropy cost, l2 and momentum, and 100 epochs.
+this is squared error on sigmoids with none of that.
+
+11 minutes for 30 epochs which is about the same as theano was on cpu.
+theanos whole advantage is the gpu i dont have.
+
+with momentum 0.9: 0.0811 at epoch 30
