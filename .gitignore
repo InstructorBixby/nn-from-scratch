@@ -1,0 +1,4 @@
+*.pyc
+weights.txt
+*.pkl
+*.pkl.gz
