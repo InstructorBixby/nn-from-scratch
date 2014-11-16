@@ -9,6 +9,9 @@ class Net:
     r = numpy.random.RandomState(seed)
     self.W = []
     self.b = []
+    self.vW = []
+    self.vb = []
+    self.mom = 0.9
     self.n = len(sizes) - 1
     i = 0
     while i < self.n:
@@ -17,6 +20,8 @@ class Net:
       z = 1.0 / numpy.sqrt(sizes[i])
       self.W.append(r.uniform(-z, z, (sizes[i], sizes[i+1])))
       self.b.append(numpy.zeros((1, sizes[i+1])))
+      self.vW.append(numpy.zeros((sizes[i], sizes[i+1])))
+      self.vb.append(numpy.zeros((1, sizes[i+1])))
       i = i + 1
 
   def fwd(self, X):
@@ -36,8 +41,10 @@ class Net:
       gb = d.sum(axis=0)
       if i > 0:
         d = numpy.dot(d, self.W[i].T) * a[i] * (1 - a[i])
-      self.W[i] = self.W[i] - lr * gW
-      self.b[i] = self.b[i] - lr * gb
+      self.vW[i] = self.mom * self.vW[i] - lr * gW
+      self.vb[i] = self.mom * self.vb[i] - lr * gb
+      self.W[i] = self.W[i] + self.vW[i]
+      self.b[i] = self.b[i] + self.vb[i]
       i = i - 1
     return ((a[self.n] - y)**2).mean()
 
