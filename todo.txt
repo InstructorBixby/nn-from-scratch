@@ -1,0 +1,10 @@
+- cross entropy instead of squared error. apparently the sigmoid
+  derivative cancels out which is why it learns faster
+- softmax on the output for mnist, the 10 sigmoids dont add up to 1 and
+  they should
+- tanh and relu as options
+- l2
+- check2.py only checks W not the biases
+- the shuffle copies the whole training set so its in memory twice,
+  thats 400mb and this laptop has 2gb
+- read bishop chapter 5, people keep saying to
