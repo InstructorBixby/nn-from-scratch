@@ -1,0 +1,23 @@
+python 2 went eol on 2020-01-01 and there is no python2 on this machine
+any more.
+
+    $ python test.py
+      File "test.py", line 19
+        print h
+              ^
+    SyntaxError: Missing parentheses in call to 'print'. Did you mean print('h')?
+
+    $ python mnist.py
+    Traceback (most recent call last):
+      File "mnist.py", line 2, in <module>
+        import cPickle
+    ModuleNotFoundError: No module named 'cPickle'
+
+what needs doing
+
+  - print statements -> print()
+  - cPickle -> pickle, and a py2 pickle needs encoding='latin1' or the
+    numpy arrays come back as nonsense
+  - len(trX) / B is a float now and range/while comparisons on it are
+    wrong, needs //
+  - mnist.pkl.gz is a 404, deeplearning.net is gone
