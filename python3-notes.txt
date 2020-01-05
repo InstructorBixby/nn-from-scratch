@@ -21,3 +21,10 @@ what needs doing
   - len(trX) / B is a float now and range/while comparisons on it are
     wrong, needs //
   - mnist.pkl.gz is a 404, deeplearning.net is gone
+
+---
+done: test.py, check.py, nn2.py. test.py gives the same numbers it always
+did, 0.001151 at iteration 9000, so the port is probably right.
+
+not done: mnist.py, check2.py, thing.py. they all want the pickle and the
+pickle is a dead link.

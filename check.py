@@ -23,7 +23,7 @@ dh = numpy.dot(do, W2.T) * h * (1 - h)
 g2 = numpy.dot(h.T, do)
 g1 = numpy.dot(X.T, dh)
 
-print 'W2'
+print('W2')
 i = 0
 while i < 3:
     old = W2[i][0]
@@ -40,10 +40,10 @@ while i < 3:
 
     W2[i][0] = old
     num = (up - dn) / (2*EPS)
-    print i, g2[i][0], num, g2[i][0]/num
+    print(i, g2[i][0], num, g2[i][0]/num)
     i = i + 1
 
-print 'W1'
+print('W1')
 i = 0
 while i < 2:
     j = 0
@@ -62,6 +62,6 @@ while i < 2:
 
         W1[i][j] = old
         num = (up - dn) / (2*EPS)
-        print i, j, g1[i][j], num, g1[i][j]/num
+        print(i, j, g1[i][j], num, g1[i][j]/num)
         j = j + 1
     i = i + 1

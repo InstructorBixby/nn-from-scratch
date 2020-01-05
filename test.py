@@ -35,7 +35,7 @@ while i < 10000:
     b1 = b1 - LR * dh.sum(axis=0)
 
     if i % 1000 == 0:
-        print i, ((o - y)**2).mean()
+        print(i, ((o - y)**2).mean())
     i = i + 1
 
-print o
+print(o)
